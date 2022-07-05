@@ -33,14 +33,14 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Password</label>
-                                    <input type="password" class="form-control" placeholder="Password" name="password">
+                                    <input type="password" class="form-control" placeholder="Password" name="userpwd">
                                 </div>
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label>Confirm Password</label>
                                     <input type="password" class="form-control" placeholder="Confirm Password" name="cpassword">
-                                </div>
+                                </div> -->
                                 <div class="my-4">
-                                <input type="submit" class="btn btn-outline-primary btn-sm signup" id="reg-btn" name="submit" value="Create Account">
+                                <input type="submit" class="btn btn-outline-primary btn-sm signup" id="reg-btn" name="reg_submit" value="Create Account">
                                 <span class="signin-link">Already have an account? Click here to <a href="#">Login</a></span>
                                 </div>
                              
