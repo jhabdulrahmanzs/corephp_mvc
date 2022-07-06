@@ -22,11 +22,14 @@ if(isset($_SESSION['useremail'])){
     </head>
 
     <body>
+        <?php
+            include 'templates/header.php'
+        ?>
 
         <div class="form-bg">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-offset-3 col-md-6 my-3">
+                    <div class="col-md-offset-6 col-md-6 my-3">
                         <div class="form-container">
                             <h3 class="title">Register</h3>
                             <form class="form-horizontal" method="POST" action="http://localhost/corephp_mvc/application/controller/RegisterController.php">
