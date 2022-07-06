@@ -2,10 +2,12 @@
 session_start();
 
 include('../config/dbconnect.php');
+include('../views/login.php');
 if(isset($_POST['Login']))
 {
 
     $username=$_POST['username'];
+    $_SESSION['username'] = $username;
 
     // print_r($username);
 

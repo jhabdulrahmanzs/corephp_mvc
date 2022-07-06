@@ -9,7 +9,7 @@
 	</head>
     <title>login</title>
 <body>
-    <div class="container">
+    <div class="login">
     <form action="http://localhost/corephp_mvc/application/controller/LoginController.php" method="post">
 
 <label for="username">

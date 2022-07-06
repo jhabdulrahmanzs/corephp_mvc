@@ -7,7 +7,17 @@
     <title>Home page</title>
 </head>
 <body>
+
+<?php
+session_start();
+if(!isset($_SESSION['username']) || empty($_SESSION['username'])) {
+    echo 'Welcome Guest.';
+} else {
+    echo 'Welcome ' . $_SESSION['username'];
+}
+?>
     <h1>You will see something great soon</h1>
+    
     <p><a href="logout.php">Logout</a></p>
 </body>
 </html>
