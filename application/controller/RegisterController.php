@@ -1,6 +1,7 @@
 <?php
  
  include('../config/dbconnect.php');
+ include('../views/register.php');
 
 //  function submit(){
 
