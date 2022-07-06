@@ -41,7 +41,7 @@
                                 </div> -->
                                 <div class="my-4">
                                 <input type="submit" class="btn btn-outline-primary btn-sm signup" id="reg-btn" name="reg_submit" value="Create Account">
-                                <span class="signin-link">Already have an account? Click here to <a href="#">Login</a></span>
+                                <span class="signin-link">Already have an account? Click here to <a href="login.php">Login</a></span>
                                 </div>
                              
                             </form>
