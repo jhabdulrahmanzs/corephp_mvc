@@ -16,7 +16,7 @@ session_start();
 <?php
 
 if(!isset($_SESSION['useremail']) || empty($_SESSION['useremail'])) {
-    echo 'Welcome Guest.';
+    header('Location: http://localhost/corephp_mvc/application/views/login.php');
 } else {
     echo 'Welcome ' . $_SESSION['useremail'];
 }
