@@ -1,9 +1,10 @@
 <?php
- 
+  session_start();
+  
  include '../config/dbconnect.php';
  include '../views/register.php';
 
- session_start();
+
 
 
 //  function submit(){
@@ -11,7 +12,8 @@
   if(isset($_POST['reg_submit']))  {
     $username = $_POST['username'];
     $useremail = $_POST['useremail'];
-    $userpwd = $_POST['userpwd'];
+    $_SESSION['useremail']=$useremail;
+    $userpwd =md5($_POST['userpwd']);
     $select="SELECT * from register where useremail='$useremail'";
     $result=mysqli_query($conn,$select);
     if(mysqli_num_rows($result)>0)

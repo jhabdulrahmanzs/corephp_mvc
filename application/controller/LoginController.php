@@ -10,7 +10,7 @@ if(isset($_POST['Login']))
     $useremail=$_POST['useremail'];
     $_SESSION['useremail']=$useremail;
     // print_r($username);
-    $userpwd=$_POST['userpwd'];
+    $userpwd=md5($_POST['userpwd']);
     // print_r($userpwd);
     $query=" SELECT * from register where   useremail='$useremail' AND userpwd='$userpwd'";
    // print_r($query);

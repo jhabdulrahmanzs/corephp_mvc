@@ -1,7 +1,14 @@
+<?php 
+session_start();
+
+// error_reporting(0);
+if(isset($_SESSION['useremail'])){
+    header('Location: http://localhost/corephp_mvc/application/views/login.php');
+}
+?>
 
     <!doctype html>
     <html lang="en">
-
     <head>
         <!-- Required meta tags -->
         <meta charset="utf-8">
