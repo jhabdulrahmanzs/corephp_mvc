@@ -14,6 +14,7 @@
     $useremail = $_POST['useremail'];
     $_SESSION['useremail']=$useremail;
     $userpwd =md5($_POST['userpwd']);
+    $cpassword =md5($_POST['cpassword']);
     $select="SELECT * from register where useremail='$useremail'";
     $result=mysqli_query($conn,$select);
     if(mysqli_num_rows($result)>0)
@@ -23,7 +24,7 @@
     }
     else
     {
-      $register="INSERT into register(username,useremail,userpwd) values('$username','$useremail','$userpwd')";
+      $register="INSERT into register(username,useremail,userpwd,cpassword) values('$username','$useremail','$userpwd','$cpassword')";
     if(mysqli_query($conn, $register)){
       header("Location: http://localhost/corephp_mvc/application/views/home.php");
  

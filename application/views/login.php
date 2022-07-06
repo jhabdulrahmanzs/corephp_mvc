@@ -25,9 +25,7 @@ if(isset($_SESSION['useremail'])){
 
 <body>
 
-    <?php
-            include 'templates/header.php'
-    ?>
+    
     <div class="login">
         <form action="http://localhost/corephp_mvc/application/controller/LoginController.php" method="post">
             <label for="useremail">
