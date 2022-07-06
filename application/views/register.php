@@ -1,6 +1,7 @@
 <?php 
-session_start();
-
+if (!isset($_SESSION)) {
+    session_start();
+}
 // error_reporting(0);
 if(isset($_SESSION['useremail'])){
     header('Location: http://localhost/corephp_mvc/application/views/login.php');
@@ -22,9 +23,7 @@ if(isset($_SESSION['useremail'])){
     </head>
 
     <body>
-        <?php
-            include 'templates/header.php'
-        ?>
+      
 
         <div class="form-bg">
             <div class="container">
@@ -45,10 +44,10 @@ if(isset($_SESSION['useremail'])){
                                     <label>Password</label>
                                     <input type="password" class="form-control" min="6" max="20" placeholder="Password" name="userpwd" required>
                                 </div>
-                                <!-- <div class="form-group">
+                                <div class="form-group">
                                     <label>Confirm Password</label>
-                                    <input type="password" class="form-control" placeholder="Confirm Password" name="cpassword">
-                                </div> -->
+                                    <input type="password" class="form-control" min="6" max="20" placeholder="Confirm Password" name="cpassword" required>
+                                </div>
                                 <div class="my-4">
                                 <input type="submit" class="btn btn-outline-primary btn-sm signup" id="reg-btn" name="reg_submit" value="Create Account">
                                 <span class="signin-link">Already have an account? Click here to <a href="login.php">Login</a></span>

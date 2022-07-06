@@ -10,6 +10,7 @@
         <li><a href="#" class="nav-link px-2 link-dark">About</a></li>
       </ul>
       <div class="col-md-3 text-end">
+      <p><a href="logout.php">Logout</a></p>
         <button type="button"  class="btn btn-outline-primary me-2"><a href="http://localhost/corephp_mvc/application/views/login.php" >Login</a></button>
         <button type="button" class="btn btn-link "><a  href="http://localhost/corephp_mvc/application/views/register.php" >Sign-up</a></button>
       </div>
