@@ -11,15 +11,17 @@
 		<div class="login">
 			<h1>Login</h1>
 			<form action="http://localhost/corephp_mvc/application/controller/LoginController.php" method="post">
-				<label for="useremail">
+				<label for="username">
 					<i class="fas fa-user"></i>
 				</label>
-				<input type="text" name="email" placeholder="email" id="useremail" required>
+				<input type="text" name="username" placeholder="username" id="username" required>
 				<label for="password">
 					<i class="fas fa-lock"></i>
 				</label>
-				<input type="password" name="password" placeholder="Password" id="password" required>
-				<input type="submit" value="Login">
+				<input type="password" name="userpwd" placeholder="Password" id="password" required>
+				<input type="submit" value="Login" name ="Login">
+
+                <p><a href="register.php">register here</a></p>
 			</form>
 		</div>
 	</body>

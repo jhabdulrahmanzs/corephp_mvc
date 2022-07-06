@@ -7,6 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Welcome</h1>
+    <h1>You will see something great soon</h1>
+     <p><a href="logout.php">Logout</a></p>
 </body>
 </html>
