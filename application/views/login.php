@@ -1,5 +1,7 @@
 <?php 
-session_start();
+if (!isset($_SESSION)) {
+    session_start();
+}
 
 // error_reporting(0);
 if(isset($_SESSION['useremail'])){
