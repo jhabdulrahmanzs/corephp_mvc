@@ -12,19 +12,17 @@
     $username = $_POST['username'];
     $useremail = $_POST['useremail'];
     $userpwd = $_POST['userpwd'];
-    $_SESSION['username'] = $username;
-    $sql = 'insert into register(username,useremail,userpwd) values("'.$username.'","'.$useremail.'","'.$userpwd.'")';
-    
-
-    // $uname = $_POST ["username"];  
-    // if (!preg_match ("/^[a-zA-z]*$/", $uname) ) {  
-    //     $ErrMsg = "Only alphabets and whitespace are allowed.";  
-    //             echo $ErrMsg;  
-    // } else {  
-    //     echo $uname;  
-    // }  
-
-    if(mysqli_query($conn, $sql)){
+    $select="SELECT * from register where useremail='$useremail'";
+    $result=mysqli_query($conn,$select);
+    if(mysqli_num_rows($result)>0)
+    {
+      echo"<script>alert('email is already taken')</script>";
+      echo"<script>windows.open('register.php')</script>";
+    }
+    else
+    {
+      $register="INSERT into register(username,useremail,userpwd) values('$username','$useremail','$userpwd')";
+    if(mysqli_query($conn, $register)){
       header("Location: http://localhost/corephp_mvc/application/views/home.php");
  
       exit;
@@ -34,5 +32,5 @@
     }
     mysqli_close($conn);
   }
-
+  }
 ?>  
