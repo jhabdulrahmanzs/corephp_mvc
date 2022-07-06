@@ -1,9 +1,11 @@
 <?php
  
- include('../config/dbconnect.php');
- include('../views/register.php');
+ include '../config/dbconnect.php';
+ include '../views/register.php';
+
  session_start();
- 
+
+
 //  function submit(){
 
   if(isset($_POST['reg_submit']))  {

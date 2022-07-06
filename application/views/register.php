@@ -25,15 +25,15 @@
                             <form class="form-horizontal" method="POST" action="http://localhost/corephp_mvc/application/controller/RegisterController.php">
                                 <div class="form-group">
                                     <label>User Name</label>
-                                    <input type="text" class="form-control" placeholder="User Name" name="username" required>
+                                    <input type="text" class="form-control" min="6" max="20" placeholder="User Name" name="username" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Email ID</label>
-                                    <input type="email" class="form-control" placeholder="Email Address" name="useremail" required>
+                                    <input type="email" class="form-control" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" title="Invalid email address" placeholder="Email Address" name="useremail" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Password</label>
-                                    <input type="password" class="form-control" placeholder="Password" name="userpwd" required>
+                                    <input type="password" class="form-control" min="6" max="20" placeholder="Password" name="userpwd" required>
                                 </div>
                                 <!-- <div class="form-group">
                                     <label>Confirm Password</label>
