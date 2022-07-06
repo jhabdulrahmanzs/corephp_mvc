@@ -7,13 +7,12 @@
     <title>Home page</title>
 </head>
 <body>
-
 <?php
 session_start();
-if(!isset($_SESSION['username']) || empty($_SESSION['username'])) {
+if(!isset($_SESSION['useremail']) || empty($_SESSION['useremail'])) {
     echo 'Welcome Guest.';
 } else {
-    echo 'Welcome ' . $_SESSION['username'];
+    echo 'Welcome ' . $_SESSION['useremail'];
 }
 ?>
     <h1>You will see something great soon</h1>
