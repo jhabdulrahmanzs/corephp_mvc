@@ -11,7 +11,7 @@ if(isset($_SESSION['useremail'])){
     <!doctype html>
     <html lang="en">
     <head>
-        <!-- Required meta tags -->
+        <!--  meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -27,26 +27,29 @@ if(isset($_SESSION['useremail'])){
 
         <div class="form-bg">
             <div class="container">
-                <div class="row">
-                    <div class="col-md-offset-6 col-md-6 my-3">
+                <div class="lay-container">
                         <div class="form-container">
                             <h3 class="title">Register</h3>
                             <form class="form-horizontal" method="POST" action="http://localhost/corephp_mvc/application/controller/RegisterController.php">
                                 <div class="form-group">
-                                    <label>User Name</label>
+                                    <label class="required">User Name</label>
                                     <input type="text" class="form-control" min="6" max="20" placeholder="User Name" name="username" required>
+                                    <span class="text-danger" id="nameerror"> <?php echo $nameErr;?></span>
                                 </div>
                                 <div class="form-group">
-                                    <label>Email ID</label>
-                                    <input type="email" class="form-control" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" title="Invalid email address" placeholder="Email Address" name="useremail" required>
+                                    <label class="required">Email ID</label>
+                                    <input type="email" class="form-control" title="Invalid email address" placeholder="Email Address" name="useremail" required>
+                                    <span class="text-danger" id="emailerror"> <?php echo $emailErr;?></span>
                                 </div>
                                 <div class="form-group">
-                                    <label>Password</label>
+                                    <label class="required">Password</label>
                                     <input type="password" class="form-control" min="6" max="20" placeholder="Password" name="userpwd" required>
+                                    <span class="text-danger" id="pwderror"></span>
                                 </div>
                                 <div class="form-group">
-                                    <label>Confirm Password</label>
+                                    <label class="required">Confirm Password</label>
                                     <input type="password" class="form-control" min="6" max="20" placeholder="Confirm Password" name="cpassword" required>
+                                    <span class="text-danger" id="cpwderror"></span>
                                 </div>
                                 <div class="my-4">
                                 <input type="submit" class="btn btn-outline-primary btn-sm signup" id="reg-btn" name="reg_submit" value="Create Account">
@@ -55,7 +58,7 @@ if(isset($_SESSION['useremail'])){
                              
                             </form>
                         </div>
-                    </div>
+                    
                 </div>
             </div>
         </div>

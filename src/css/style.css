@@ -11,3 +11,8 @@ body {
 h1 {
     color: #007bff;
 }
+
+.required:after {
+    content: " *";
+    color: red;
+}
