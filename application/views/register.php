@@ -33,12 +33,12 @@ if(isset($_SESSION['useremail'])){
                             <form class="form-horizontal" method="POST" action="http://localhost/corephp_mvc/application/controller/RegisterController.php">
                                 <div class="form-group">
                                     <label class="required" for="fname">First Name</label>
-                                    <input type="text" class="form-control" id="fname" min="6" max="20" placeholder="User Name" name="username" required>
+                                    <input type="text" class="form-control" id="fname" min="6" max="20" placeholder="User Name" name="firstname" required>
                                     <span class="text-danger" id="nameerror"> <?php echo $nameErr;?></span>
                                 </div>
                                 <div class="form-group">
                                     <label class="required" for="lname">last Name</label>
-                                    <input type="text" class="form-control" id="lname" min="6" max="20" placeholder="User Name" name="username" required>
+                                    <input type="text" class="form-control" id="lname" min="6" max="20" placeholder="User Name" name="lastname" required>
                                     <span class="text-danger" id="nameerror"> <?php echo $nameErr;?></span>
                                 </div>
                                 <div class="form-group">
@@ -54,16 +54,16 @@ if(isset($_SESSION['useremail'])){
                             
                                 <div class="form-group">
                                         <label class="form-label required" for="phoneNumber">Phone Number</label>
-                                        <input type="tel" id="phoneNumber" class="form-control" placeholder="Phone no"/>
+                                        <input type="tel" id="phoneNumber" class="form-control" name="userphone" placeholder="Phone no"/>
                                    
                                 </div>
                                 <div class="form-group">                
                                     <label class="form-label required" for="formFileLg" >Profile Upload</label>
-                                    <input class="form-control" id="formFileLg" type="file" />
+                                    <input class="form-control" id="formFileLg" name="userprofile" type="file" />
                                 </div>
                                 <div class="form-group">
                                         <label class="form-label required" for="addressform">Address</label>
-                                        <textarea class="form-control" id="addressform" rows="3" placeholder="Enter Address"></textarea>                                  
+                                        <textarea class="form-control" id="addressform" name="useraddress" rows="3" placeholder="Enter Address"></textarea>                                  
                                 </div>
                                 <div class="form-group">
                                     <label class="required" for="pwd">Password</label>
