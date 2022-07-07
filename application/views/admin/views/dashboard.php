@@ -1,3 +1,14 @@
+<?php
+include '../config/dbconnect.php';
+$sql = " SELECT * FROM register";
+
+
+$result = mysqli_query($conn,$sql);
+if(!isset($result)){
+    echo "failed";
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,15 +30,43 @@
 
         <div class="d-flex align-items-center justify-content-between">
             <a href="index.html" class="logo d-flex align-items-center">
-                <img src="assets/img/logo.png" alt="">
                 <span class="d-none d-lg-block">Zuci project</span>
             </a>
-        </div><!-- End Logo -->
-
-        
+        </div>
 
 
     </header>
+
+    <main>
+
+    <table class="tablee">
+            <tr>
+                <th>First name</th>
+                <th>Last Name</th>
+                <th>Email ID</th>
+                <th>Phone number</th>
+                <th>Profile</th>
+                <th>Address</th>
+            </tr>
+            <?php
+                while($rows=$result->fetch_assoc())
+                {
+            ?>
+            <tr>
+                <td><?php echo $rows['firstname'];?></td>
+                <td><?php echo $rows['lastname'];?></td>
+                <td><?php echo $rows['useremail'];?></td>
+                <td><?php echo $rows['phone'];?></td>
+                <td><?php echo $rows['profile'];?></td>
+                <td><?php echo $rows['address'];?></td>
+            </tr>
+            <?php
+                }
+            ?>
+        </table>
+
+
+    </main>
 
     <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../assets/js/main.js"></script>
