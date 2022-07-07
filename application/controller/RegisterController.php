@@ -1,24 +1,23 @@
 <?php
 error_reporting(E_ALL);
 // error_reporting(0);
-// ini_set('display_errors',1);
-// if (!isset($_SESSION)) {
-//   session_start();
-// }
+ini_set('display_errors',1);
+if (!isset($_SESSION)) {
+  session_start();
+}
   
  include '../config/dbconnect.php';
  include '../views/register.php';
 
 
 
-  if(isset($_POST['reg_submit']))  {
+  if($_SERVER["REQUEST_METHOD"] == "POST")  {
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
     $username = $_POST['username'];
     $useremail = $_POST['useremail'];
     $phoneno = $_POST['userphone'];
-    $userprofile = $_POST['userprofile'];
-    echo  $userprofile;
+    // $userprofile = $_POST['userprofile'];
     $useraddress = $_POST['useraddress'];
     $userpwd =md5($_POST['userpwd']);
     $cpassword =md5($_POST['cpassword']);
@@ -31,7 +30,7 @@ error_reporting(E_ALL);
       if($userpwd != $cpassword){
         echo "passwords doesn't match";
       }
-  
+      // profile upload
       $target_dir = "../../src/uploads/";
       $target_dir_link = "http://localhost/corephp_mvc";
       $target_file = $target_dir . basename($_FILES["userprofile"]["name"]);
@@ -81,15 +80,14 @@ error_reporting(E_ALL);
         }
       }
 
+          $register="INSERT into register(firstname,lastname,username,useremail,phone,profile,address,userpwd) values('$firstname','$lastname','$username','$useremail','$phoneno','$target_dir_con','$useraddress','$userpwd')";
+          $result = mysqli_query($conn,$register);
+          if($result){
+            echo "User Created Successfully.";
+        }
+  }
      
-      }
-      $register="INSERT into register(firstname,lastname,username,useremail,phone,profile,address,userpwd) values('$firstname','$lastname','$username','$useremail','$phoneno','$target_dir_con','$useraddress','$userpwd')";
-      $result = mysqli_query($conn,$register);
-      if($result){
-        echo "User Created Successfully.";
-    }
-    else{    
-                   
-          echo "login failed";
-            }
+  else{          
+    echo "login failed";
+  }
 ?>  
