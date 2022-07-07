@@ -7,7 +7,7 @@ if (!isset($_SESSION)) {
 }
   
  include '../config/dbconnect.php';
-//  include '../views/register.php';
+ include '../views/register.php';
 
 
 
@@ -21,7 +21,7 @@ if (!isset($_SESSION)) {
     $useraddress = $_POST['useraddress'];
     $userpwd =md5($_POST['userpwd']);
     $cpassword =md5($_POST['cpassword']);
-    // $_SESSION['useremail']=$useremail;
+    $_SESSION['useremail']=$useremail;
     $select="SELECT * from register where useremail='$useremail'";
     $result=mysqli_query($conn,$select);
       if(mysqli_num_rows($result)>0){
@@ -32,11 +32,11 @@ if (!isset($_SESSION)) {
       }
       // profile upload
       $target_dir = "../../src/uploads/";
-      $target_dir_link = "http://localhost/corephp_mvc";
+      $target_dir_link = "http://localhost/corephp_mvc/src/uploads/";
       $target_file = $target_dir . basename($_FILES["userprofile"]["name"]);
       $uploadOk = 1;
       $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-      
+      $target_dir_con = $target_dir_link .basename($_FILES["userprofile"]["name"]);
       // Check if image file is a actual image or fake image
       
         $check = getimagesize($_FILES["userprofile"]["tmp_name"]);
@@ -72,8 +72,7 @@ if (!isset($_SESSION)) {
       // if everything is ok, try to upload file
       } else {
         if (move_uploaded_file($_FILES["userprofile"]["tmp_name"], $target_file)) {
-          $target_dir_con = $target_dir_link . $target_dir;
-          echo  $target_dir_con;
+          
           echo "The file ". htmlspecialchars( basename( $_FILES["userprofile"]["name"])). " has been uploaded.";
         } else {
           echo "Sorry, there was an error uploading your file.";
