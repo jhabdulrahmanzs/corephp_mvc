@@ -30,25 +30,25 @@ if(isset($_SESSION['useremail'])){
                 <div class="lay-container">
                         <div class="form-container">
                             <h3 class="title">Register</h3>
-                            <form class="form-horizontal" method="POST" action="http://localhost/corephp_mvc/application/controller/RegisterController.php">
+                            <form class="form-horizontal" method="POST" action="http://localhost/corephp_mvc/application/controller/RegisterController.php" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label class="required" for="fname">First Name</label>
-                                    <input type="text" class="form-control" id="fname" min="6" max="20" placeholder="User Name" name="firstname" required>
+                                    <input type="text" class="form-control" id="fname" min="6" max="20" placeholder="User Name" name="firstname" >
                                     <span class="text-danger" id="nameerror"> <?php echo $nameErr;?></span>
                                 </div>
                                 <div class="form-group">
                                     <label class="required" for="lname">last Name</label>
-                                    <input type="text" class="form-control" id="lname" min="6" max="20" placeholder="User Name" name="lastname" required>
+                                    <input type="text" class="form-control" id="lname" min="6" max="20" placeholder="User Name" name="lastname" >
                                     <span class="text-danger" id="nameerror"> <?php echo $nameErr;?></span>
                                 </div>
                                 <div class="form-group">
                                     <label class="required" for="username">User Name</label>
-                                    <input type="text" class="form-control" min="6" id="username" max="20" placeholder="User Name" name="username" required>
+                                    <input type="text" class="form-control" min="6" id="username" max="20" placeholder="User Name" name="username" >
                                     <span class="text-danger" id="nameerror"> <?php echo $nameErr;?></span>
                                 </div>
                                 <div class="form-group">
                                     <label class="required" for="useremail">Email ID</label>
-                                    <input type="email" class="form-control" id="useremail" title="Invalid email address" placeholder="Email Address" name="useremail" required>
+                                    <input type="email" class="form-control" id="useremail" title="Invalid email address" placeholder="Email Address" name="useremail" >
                                     <span class="text-danger" id="emailerror"> <?php echo $emailErr;?></span>
                                 </div>
                             
@@ -67,12 +67,12 @@ if(isset($_SESSION['useremail'])){
                                 </div>
                                 <div class="form-group">
                                     <label class="required" for="pwd">Password</label>
-                                    <input type="password" class="form-control" id="pwd" min="6" max="20" placeholder="Password" name="userpwd" required>
+                                    <input type="password" class="form-control" id="pwd" min="6" max="20" placeholder="Password" name="userpwd" >
                                     <span class="text-danger" id="pwderror"></span>
                                 </div>
                                 <div class="form-group" for="cpwd">
                                     <label class="required">Confirm Password</label>
-                                    <input type="password" class="form-control" id="cpwd" min="6" max="20" placeholder="Confirm Password" name="cpassword" required>
+                                    <input type="password" class="form-control" id="cpwd" min="6" max="20" placeholder="Confirm Password" name="cpassword" >
                                     <span class="text-danger" id="cpwderror"></span>
                                 </div>
                                 <div class="btns">
