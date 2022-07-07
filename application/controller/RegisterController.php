@@ -7,7 +7,7 @@ if (!isset($_SESSION)) {
 }
   
  include '../config/dbconnect.php';
- include '../views/register.php';
+//  include '../views/register.php';
 
 
 

@@ -2,7 +2,7 @@
 session_start();
 
 include '../config/dbconnect.php';
-include '../views/login.php';
+//include '../views/login.php';
 //$regex="/^(?=\P{Ll}*\p{Ll})(?=\P{Lu}*\p{Lu})(?=\P{N}*\p{N})(?=[\p{L}\p{N}]*[^\p{L}\p{N}])[\s\S]{8,}$/";
 if(isset($_POST['Login']))
 {
@@ -12,7 +12,7 @@ if(isset($_POST['Login']))
     $useremail=filter_var($useremail,FILTER_SANITIZE_EMAIL);
     if(filter_var($useremail,FILTER_VALIDATE_EMAIL))
     {
-        echo "valid email format";
+       // echo "valid email format";    
         $query=" SELECT * from register where   useremail='$useremail' AND userpwd='$userpwd'";
         // print_r($query);
          $connect=mysqli_query($conn,$query);
@@ -21,7 +21,7 @@ if(isset($_POST['Login']))
          if($result==0)
          {
              echo"<script>alert('password or email is wrong')</script>";
-             exit();
+             echo"<script>window.open('http://localhost/corephp_mvc/application/views/logout.php','_self')</script>";
          }
          else{
              echo"<script>alert('you have loggied in successfully')</script>";
@@ -30,6 +30,8 @@ if(isset($_POST['Login']))
     }
     else
     {
-        echo "Invalid eg:example@gmail.com";
+        echo"<script>alert('your MailId is Invalid eg:example@gmail.com')</script>";
+        echo"<script>window.open('http://localhost/corephp_mvc/application/views/logout.php','_self')</script>";
     }
+
 }
