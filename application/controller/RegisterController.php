@@ -1,10 +1,12 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors',1);
   session_start();
   
  include '../config/dbconnect.php';
  include '../views/register.php';
 
-
+ $nameErr = $emailErr = "";
 
 
 //  function submit(){
@@ -19,21 +21,45 @@
     $result=mysqli_query($conn,$select);
     if(mysqli_num_rows($result)>0)
     {
-      echo"<script>alert('email is already taken')</script>";
-      echo"<script>windows.open('register.php')</script>";
+        echo 'email already exists';
     }
-    else
-    {
-      $register="INSERT into register(username,useremail,userpwd,cpassword) values('$username','$useremail','$userpwd','$cpassword')";
-    if(mysqli_query($conn, $register)){
-      header("Location: http://localhost/corephp_mvc/application/views/home.php");
- 
-      exit;
+    elseif($_SERVER["REQUEST_METHOD"] == "POST") {
+      if (empty($_POST["username"])) {
+        $nameErr = "Name is required";
+      } else {
+        $name = test_input($_POST["username"]);
+        // check if name only contains letters and whitespace
+        if (!preg_match("/^[a-zA-Z-' ]*$/",$name)) {
+          $nameErr = "Only letters and white space allowed";
+        }
+      }
+
+      if (empty($_POST["useremail"])) {
+        $emailErr = "Email is required";
+      } else {
+        $email = test_input($_POST["useremail"]);
+        // check if e-mail address is well-formed
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+          $emailErr = "Invalid email format";
+        }
+      }
     }
-    else{
-        echo "Error:". $sql. "". mysqli_errors($conn);
-    }
-    mysqli_close($conn);
+    elseif($userpwd != $cpassword){
+         echo "passwords doesn't match";
+    }  
+    
   }
+  else{
+    $register="INSERT into register(username,useremail,userpwd) values('$username','$useremail','$userpwd')";
+        $result = mysqli_query($conn,$register);
+        if($result){
+           echo "User Created Successfully.";
+        }
+  }
+
+  function test_input($data) {
+    $data = trim($data);
+    $data = htmlspecialchars($data);
+    return $data;
   }
 ?>  

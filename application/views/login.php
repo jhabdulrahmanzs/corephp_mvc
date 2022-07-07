@@ -11,7 +11,6 @@ if(isset($_SESSION['useremail'])){
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <title>Login</title>
@@ -42,5 +41,4 @@ if(isset($_SESSION['useremail'])){
         </form>
     </div>
 </body>
-
 </html>
