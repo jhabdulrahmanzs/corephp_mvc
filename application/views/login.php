@@ -11,6 +11,7 @@ if (isset($_SESSION['useremail'])) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <title>Login</title>
@@ -24,35 +25,35 @@ if (isset($_SESSION['useremail'])) {
 
     <div class="form-bg">
         <div class="container">
-            <div class="row">
-                <div class="col-md-offset-6 col-md-6 my-3">
-                    <div class="form-container">
-                        <h3 class="title">Login</h3>
-                        <form class="form-horizontal" action="../controller/LoginController.php" method="post" id="form">
-                            <div class="form-group">
-                                <label>User Email</label>
-                                <input type="text" class="form-control" placeholder="User Email" name="useremail">
-                                <!-- <div>error</div> -->
-                            </div>
-                            <!-- <input type="text" name="useremail" placeholder="useremail" id="useremail" > -->
-                            <div class="form-group">
-                                <label>User password</label>
-                                <input type="password" class="form-control" placeholder="userpwd" name="userpwd">
-                                <!-- <div>error</div> -->
-                            </div>
-                            <div class="my-4">
-                                <input type="submit" class="btn btn-outline-primary btn-sm signup" id="reg-btn" name="Login" value="Login" ><br>
-                                <span class="signin-link">If You Don't have an Account?Register Here <a href="register.php">Register</a></span>
-                            </div>
+            <div class="lay-container">
+                <div class="form-container">
+                    <h3 class="title">Login</h3>
+                    <form class="form-horizontal" action="../controller/LoginController.php" method="post" id="form">
+                        <div class="form-group">
+                            <label>User Email</label>
+                            <input type="text" class="form-control" placeholder="User Email" name="useremail">
+                            <!-- <div>error</div> -->
+                        </div>
+                        <!-- <input type="text" name="useremail" placeholder="useremail" id="useremail" > -->
+                        <div class="form-group">
+                            <label>User password</label>
+                            <input type="password" class="form-control" placeholder="Password" name="userpwd">
+                            <!-- <div>error</div> -->
+                        </div>
+                        <div class="btns">
+                            <input type="submit" class="btn btn-outline-primary btn-sm signup" id="reg-btn" name="Login" value="Login"><br>
+                            <span class="signin-link">If You Don't have an Account?Register Here <a href="register.php">Register</a></span>
+                        </div>
 
-                        </form>
-                    </div>
+                    </form>
                 </div>
             </div>
+
         </div>
     </div>
     <script>
 
     </script>
 </body>
+
 </html>
