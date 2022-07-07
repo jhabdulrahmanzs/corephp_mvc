@@ -32,26 +32,50 @@ if(isset($_SESSION['useremail'])){
                             <h3 class="title">Register</h3>
                             <form class="form-horizontal" method="POST" action="http://localhost/corephp_mvc/application/controller/RegisterController.php">
                                 <div class="form-group">
-                                    <label class="required">User Name</label>
-                                    <input type="text" class="form-control" min="6" max="20" placeholder="User Name" name="username" required>
+                                    <label class="required" for="fname">First Name</label>
+                                    <input type="text" class="form-control" id="fname" min="6" max="20" placeholder="User Name" name="username" required>
                                     <span class="text-danger" id="nameerror"> <?php echo $nameErr;?></span>
                                 </div>
                                 <div class="form-group">
-                                    <label class="required">Email ID</label>
-                                    <input type="email" class="form-control" title="Invalid email address" placeholder="Email Address" name="useremail" required>
+                                    <label class="required" for="lname">last Name</label>
+                                    <input type="text" class="form-control" id="lname" min="6" max="20" placeholder="User Name" name="username" required>
+                                    <span class="text-danger" id="nameerror"> <?php echo $nameErr;?></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="required" for="username">User Name</label>
+                                    <input type="text" class="form-control" min="6" id="username" max="20" placeholder="User Name" name="username" required>
+                                    <span class="text-danger" id="nameerror"> <?php echo $nameErr;?></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="required" for="useremail">Email ID</label>
+                                    <input type="email" class="form-control" id="useremail" title="Invalid email address" placeholder="Email Address" name="useremail" required>
                                     <span class="text-danger" id="emailerror"> <?php echo $emailErr;?></span>
                                 </div>
+                            
                                 <div class="form-group">
-                                    <label class="required">Password</label>
-                                    <input type="password" class="form-control" min="6" max="20" placeholder="Password" name="userpwd" required>
+                                        <label class="form-label required" for="phoneNumber">Phone Number</label>
+                                        <input type="tel" id="phoneNumber" class="form-control" placeholder="Phone no"/>
+                                   
+                                </div>
+                                <div class="form-group">                
+                                    <label class="form-label required" for="formFileLg" >Profile Upload</label>
+                                    <input class="form-control" id="formFileLg" type="file" />
+                                </div>
+                                <div class="form-group">
+                                        <label class="form-label required" for="addressform">Address</label>
+                                        <textarea class="form-control" id="addressform" rows="3" placeholder="Enter Address"></textarea>                                  
+                                </div>
+                                <div class="form-group">
+                                    <label class="required" for="pwd">Password</label>
+                                    <input type="password" class="form-control" id="pwd" min="6" max="20" placeholder="Password" name="userpwd" required>
                                     <span class="text-danger" id="pwderror"></span>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group" for="cpwd">
                                     <label class="required">Confirm Password</label>
-                                    <input type="password" class="form-control" min="6" max="20" placeholder="Confirm Password" name="cpassword" required>
+                                    <input type="password" class="form-control" id="cpwd" min="6" max="20" placeholder="Confirm Password" name="cpassword" required>
                                     <span class="text-danger" id="cpwderror"></span>
                                 </div>
-                                <div class="my-4">
+                                <div class="btns">
                                 <input type="submit" class="btn btn-outline-primary btn-sm signup" id="reg-btn" name="reg_submit" value="Create Account">
                                 <span class="signin-link">Already have an account? Click here to <a href="login.php">Login</a></span>
                                 </div>
