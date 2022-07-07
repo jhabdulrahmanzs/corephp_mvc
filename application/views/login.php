@@ -101,8 +101,8 @@ const validateInputs = () => {
                             </div>
                             <!-- <input type="text" name="useremail" placeholder="useremail" id="useremail" > -->
                             <div class="form-group">
-                                <label>userpwd</label>
-                                <input type="userpwd" class="form-control" placeholder="userpwd" name="userpwd">
+                                <label>User password</label>
+                                <input type="password" class="form-control" placeholder="userpwd" name="userpwd">
                                 <!-- <div>error</div> -->
                             </div>
                             <div class="my-4">
