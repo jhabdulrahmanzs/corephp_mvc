@@ -28,7 +28,7 @@ if(!isset($_SESSION['useremail']) || empty($_SESSION['useremail'])) {
 } else {
     echo '<center> Welcome ' . $_SESSION['useremail'] . '</center>';
 }
-?>
+?> 
     <center><h1>You will see something great soon</h1></center>
     
    
