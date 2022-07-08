@@ -4,6 +4,7 @@ include '../../../config/dbconnect.php';
 if (isset($_POST['Login'])) {
     $admin_email = $_POST['admin_email'];
     $admin_pass = $_POST['admin_pass'];
+    // $_SESSION['admin_email']=$admin_email;
     // print_r($admin_email);
     // print_r($admin_pass);
     if ($admin_email == "" && $admin_pass == "") {
