@@ -1,10 +1,13 @@
 <?php
+
+session_start();
+
 include '../config/dbconnect.php';
 $sql = " SELECT * FROM register";
 
 
-$result = mysqli_query($conn,$sql);
-if(!isset($result)){
+$result = mysqli_query($conn, $sql);
+if (!isset($result)) {
     echo "failed";
 }
 ?>
@@ -17,7 +20,7 @@ if(!isset($result)){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
     <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="../assets/css/style.css" rel="stylesheet" type="text/css">
@@ -33,13 +36,15 @@ if(!isset($result)){
                 <span class="d-none d-lg-block">Zuci project</span>
             </a>
         </div>
+        <div>
 
-
+            <button type="button" class="btn btn-link "><a href="http://localhost/corephp_mvc/application/views/admin/views/logout.php">Logout</a></button>
+        </div>
     </header>
 
     <main>
 
-    <table class="tablee">
+        <table class="tablee">
             <tr>
                 <th>First name</th>
                 <th>Last Name</th>
@@ -49,19 +54,18 @@ if(!isset($result)){
                 <th>Address</th>
             </tr>
             <?php
-                while($rows=$result->fetch_assoc())
-                {
+            while ($rows = $result->fetch_assoc()) {
             ?>
-            <tr>
-                <td><?php echo $rows['firstname'];?></td>
-                <td><?php echo $rows['lastname'];?></td>
-                <td><?php echo $rows['useremail'];?></td>
-                <td><?php echo $rows['phone'];?></td>
-                <td><?php echo $rows['profile'];?></td>
-                <td><?php echo $rows['address'];?></td>
-            </tr>
+                <tr>
+                    <td><?php echo $rows['firstname']; ?></td>
+                    <td><?php echo $rows['lastname']; ?></td>
+                    <td><?php echo $rows['useremail']; ?></td>
+                    <td><?php echo $rows['phone']; ?></td>
+                    <td><?php echo $rows['profile']; ?></td>
+                    <td><?php echo $rows['address']; ?></td>
+                </tr>
             <?php
-                }
+            }
             ?>
         </table>
 
