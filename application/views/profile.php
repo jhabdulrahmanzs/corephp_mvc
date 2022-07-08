@@ -115,6 +115,19 @@ if(isset($_GET['user_profile']))
 </div><!-- col-md-6 Ends -->
 
 </div><!-- form-group Ends -->
+<div class="form-group"><!-- form-group Starts -->
+
+<label class="col-md-3 control-label">Profile: </label>
+
+<div class="col-md-6"><!-- col-md-6 Starts -->
+
+<input type="file" name="admin_image" class="form-control" >
+<br>
+<img src="../../src/uploads/<?php echo $admin_image; ?>" width="70" height="70" >
+
+</div><!-- col-md-6 Ends -->
+
+</div><!-- form-group Ends -->
 <div class="panel-body"><!-- panel-body Starts --> 
 
 <form class="form-horizontal" method="post" enctype="multipart/form-data"><!-- form-horizontal Starts -->
