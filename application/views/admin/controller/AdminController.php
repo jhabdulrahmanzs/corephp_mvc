@@ -4,6 +4,7 @@ include '../../../config/dbconnect.php';
 if (isset($_POST['Login'])) {
     $admin_email = $_POST['admin_email'];
     $admin_pass = $_POST['admin_pass'];
+    
     // print_r($admin_email);
     // print_r($admin_pass);
     if ($admin_email == "" && $admin_pass == "") {
@@ -37,6 +38,7 @@ if (isset($_POST['Login'])) {
                         echo "<script>window.open('http://localhost/corephp_mvc/application/views/admin/views/login.php','_self')</script>";
                     } else {
                         echo "<script>alert('you have loggied in successfully')</script>";
+                        $_SESSION['admin_email']=$admin_email;
                         echo "<script>window.open('http://localhost/corephp_mvc/application/views/admin/views/dashboard.php','_self')</script>";
                     }
                 }

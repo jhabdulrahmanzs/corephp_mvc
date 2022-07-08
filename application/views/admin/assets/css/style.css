@@ -30,6 +30,10 @@ body {
     font-family: "Nunito", sans-serif;
 }
 
+a {
+    text-decoration: none !important;
+}
+
 .header {
     transition: all 0.5s;
     z-index: 997;
@@ -75,6 +79,7 @@ table.tablee {
     margin: 120px auto;
     font-size: 16px;
     border: 1px solid #000;
+    margin-bottom: 30px;
 }
 
 .tablee h1 {
@@ -98,4 +103,43 @@ table.tablee {
     padding: 10px;
     text-align: center;
     background-color: #fff;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+.inline {
+    display: inline-block;
+    float: right;
+    margin: 20px 0px;
+}
+
+input,
+button {
+    height: 34px;
+}
+
+.pagination {
+    /* display: inline-block; */
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.pagination a {
+    font-weight: bold;
+    font-size: 16px;
+    color: black;
+    float: left;
+    padding: 8px 15px;
+    text-decoration: none;
+    border: 1px solid black;
+}
+
+.pagination a.active {
+    background-color: #007bff;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #007bff;
 }
