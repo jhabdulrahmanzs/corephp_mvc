@@ -9,6 +9,8 @@ if(isset($_POST['Login']))
     $useremail=$_POST['useremail'];
     $_SESSION['useremail']=$useremail;
     $userpwd=md5($_POST['userpwd']);
+    if ($useremail && $userpass == "") 
+    {
     $useremail=filter_var($useremail,FILTER_SANITIZE_EMAIL);
     if(filter_var($useremail,FILTER_VALIDATE_EMAIL))
     {
@@ -33,5 +35,10 @@ if(isset($_POST['Login']))
         echo"<script>alert('your MailId is Invalid eg:example@gmail.com')</script>";
         echo"<script>window.open('http://localhost/corephp_mvc/application/views/logout.php','_self')</script>";
     }
-
 }
+else{
+        echo "<script>alert('Please the MailId and Password , the filed is Empty!')</script>";
+        echo "<script>window.open('http://localhost/corephp_mvc/application/views/logout.php','_self')</script>";
+    }
+}
+?>
