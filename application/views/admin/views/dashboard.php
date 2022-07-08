@@ -3,13 +3,31 @@
 session_start();
 
 include '../config/dbconnect.php';
-$sql = " SELECT * FROM register";
+// $sql = " SELECT * FROM register";
 
 
-$result = mysqli_query($conn, $sql);
-if (!isset($result)) {
-    echo "failed";
-}
+// $result = mysqli_query($conn, $sql);
+// if (!isset($result)) {
+
+    
+//     echo "failed";
+// }
+
+$per_page_record = 4;
+
+if (isset($_GET["page"])) {    
+    $page  = $_GET["page"];    
+}    
+else {    
+  $page=1;    
+}    
+
+$start_from = ($page-1) * $per_page_record;     
+    
+$query = "SELECT * FROM register LIMIT $start_from, $per_page_record";     
+// echo $query;
+// exit;
+$rs_result = mysqli_query ($conn, $query);    
 ?>
 
 <!DOCTYPE html>
@@ -33,7 +51,7 @@ if (!isset($result)) {
 
         <div class="d-flex align-items-center justify-content-between">
             <a href="index.html" class="logo d-flex align-items-center">
-                <span class="d-none d-lg-block">Zuci project</span>
+                <span class="d-none d-lg-block">Zuci Dashboard</span>
             </a>
         </div>
         <div>
@@ -46,6 +64,7 @@ if (!isset($result)) {
 
         <table class="tablee">
             <tr>
+                <th>User ID </th>
                 <th>First name</th>
                 <th>Last Name</th>
                 <th>Email ID</th>
@@ -54,9 +73,10 @@ if (!isset($result)) {
                 <th>Address</th>
             </tr>
             <?php
-            while ($rows = $result->fetch_assoc()) {
+            while ($rows = mysqli_fetch_assoc($rs_result)) {
             ?>
             <tr>
+                <td><?php echo $rows['id'];?></td>
                 <td><?php echo $rows['firstname'];?></td>
                 <td><?php echo $rows['lastname'];?></td>
                 <td><?php echo $rows['useremail'];?></td>
@@ -68,12 +88,52 @@ if (!isset($result)) {
             }
             ?>
         </table>
+        <div class="pagination">   
+            <?php  
+                $query = "SELECT COUNT(*) FROM register";     
+                $rs_result = mysqli_query($conn, $query);     
+               
+                $row = mysqli_fetch_row($rs_result);    
+            
+                $total_records = $row[0];     
+                
+                echo "</br>";     
+                // Number of pages required.   
+                $total_pages = ceil($total_records / $per_page_record);     
+                $pagLink = "";       
+            
+                if($page>=2){   
+                    echo "<a href='dashboard.php?page=".($page-1)."'>  Prev </a>";   
+                }       
+                        
+                for ($i=1; $i<=$total_pages; $i++) {   
+                if ($i == $page) {   
+                    $pagLink .= "<a class = 'active' href='dashboard.php?page=".$i."'>".$i." </a>";   
+                }               
+                else  {   
+                    $pagLink .= "<a href='dashboard.php?page=".$i."'>".$i." </a>";     
+                }   
+                };     
+                echo $pagLink;   
+        
+                if($page<$total_pages){   
+                    echo "<a href='dashboard.php?page=".($page+1)."'>  Next </a>";   
+                }   
 
+                
+    
+            ?>    
+
+          
+      </div>  
 
     </main>
 
     <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../assets/js/main.js"></script>
+    <script>   
+  
+  </script>  
 </body>
 
 </html>
