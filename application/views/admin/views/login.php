@@ -3,10 +3,10 @@ if (!isset($_SESSION)) {
     session_start();
 }
 
-// error_reporting(0);
-// if (isset($_SESSION['admin_email'])) {
-//     header('Location: http://localhost/corephp_mvc/application/views/admin/views/dashboard.php');
-// }
+error_reporting(0);
+if (isset($_SESSION['admin_email'])) {
+    header('Location: http://localhost/corephp_mvc/application/views/admin/views/dashboard.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
