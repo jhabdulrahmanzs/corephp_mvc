@@ -57,7 +57,7 @@ if(!isset($result)){
                 <td><?php echo $rows['lastname'];?></td>
                 <td><?php echo $rows['useremail'];?></td>
                 <td><?php echo $rows['phone'];?></td>
-                <td><?php echo $rows['profile'];?></td>
+                <td><img src="<?php echo $rows['profile'];?>" width="150px" height="150px" alt="profile"></td>
                 <td><?php echo $rows['address'];?></td>
             </tr>
             <?php
