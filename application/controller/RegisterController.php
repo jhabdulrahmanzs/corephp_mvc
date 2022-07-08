@@ -1,10 +1,11 @@
 <?php
-error_reporting(E_ALL);
+ob_start();
+session_start();
+//error_reporting(E_ALL);
 // error_reporting(0);
-ini_set('display_errors',1);
-if (!isset($_SESSION)) {
-  session_start();
-}
+//ini_set('display_errors',1);
+
+
   
  include '../config/dbconnect.php';
  include '../views/register.php';
@@ -17,20 +18,26 @@ if (!isset($_SESSION)) {
     $username = $_POST['username'];
     $useremail = $_POST['useremail'];
     $phoneno = $_POST['userphone'];
+   
     // $userprofile = $_POST['userprofile'];
     $useraddress = $_POST['useraddress'];
     $userpwd =md5($_POST['userpwd']);
     $cpassword =md5($_POST['cpassword']);
-    $_SESSION['useremail']=$useremail;
-    $select="SELECT * from register where useremail='$useremail'";
-    $result=mysqli_query($conn,$select);
-      if(mysqli_num_rows($result)>0){
-          echo 'email already exists';
-      }
+    
+
+    if ($firstname != "" && $lastname != "" && $username != "" && $lastname != "" && $useremail != "" && $phoneno != "" 
+    &&$useraddress != ""  && $userpwd != ""  && $cpassword != "" )  {
+     
       if($userpwd != $cpassword){
         echo "passwords doesn't match";
       }
-      // profile upload
+      else {
+        $select="SELECT * from register where useremail='$useremail'";
+        $result=mysqli_query($conn,$select);
+        if(mysqli_num_rows($result)>0){
+            echo 'email already exists';
+        }
+          // profile upload
       $target_dir = "../../src/uploads/";
       $target_dir_link = "http://localhost/corephp_mvc/src/uploads/";
       $target_file = $target_dir . basename($_FILES["userprofile"]["name"]);
@@ -78,15 +85,24 @@ if (!isset($_SESSION)) {
           echo "Sorry, there was an error uploading your file.";
         }
       }
-
+  
           $register="INSERT into register(firstname,lastname,username,useremail,phone,profile,address,userpwd) values('$firstname','$lastname','$username','$useremail','$phoneno','$target_dir_con','$useraddress','$userpwd')";
           $result = mysqli_query($conn,$register);
+          //print_r($result ==);
           if($result){
-            echo "User Created Successfully.";
+            $_SESSION['useremail'] = $useremail;
+            // echo "User Created Successfully.";
+            header('Location: http://localhost/corephp_mvc/application/views/home.php');
+            
         }
+      }
+    }
+    else {
+      echo "Please fill the form";
+    }    
   }
      
   else{          
-    echo "login failed";
+    echo "Registration failed";
   }
 ?>  
