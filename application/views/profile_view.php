@@ -29,11 +29,11 @@ if(!isset($result)){
 
     <div class="card">
         <?php
-        while ($rows = $result->fetch_assoc()) {
+        while ($rows = mysqli_fetch_assoc($result)) {
         ?>
 
-            <img src="../../src/uploads/vc204-301519_m.jpg" alt="UserProfile"   width="50%">
-            <!-- <img src="<?php echo $rows['profile'];?>" alt="UserProfile"   width="50%"> -->
+            <img src="<?php echo $rows['profile'];?>" alt="UserProfile"   width="50%">
+            <!-- <img src="" alt="UserProfile"   width="50%"> -->
             <h1><?php echo $rows['username'];?></h1>
             <p class="email"><?php echo $rows['useremail'];?></p>
             <p><?php echo $rows['phone'];?></p>
@@ -42,10 +42,11 @@ if(!isset($result)){
         <div>
         <p><a href="Myprofile.php" class="edit"><b>Edit Your Profile</b></a></p>
         </div>
-    </div>
-<?php
+        <?php
         }
 ?>
+    </div>
+
 </body>
 
 </html>
