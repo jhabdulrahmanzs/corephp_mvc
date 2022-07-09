@@ -1,4 +1,5 @@
 <?php
+//include('../views/templates/header.php');
 include('../config/dbconnect.php');
 session_start();
 $email = $_SESSION['useremail'];
@@ -42,6 +43,7 @@ if(!isset($result)){
         <div>
         <p><a href="Myprofile.php" class="edit"><b>Edit Your Profile</b></a></p>
         </div>
+        <a href="http://localhost/corephp_mvc/application/views/home.php">Home Page</a>
         <?php
         }
 ?>

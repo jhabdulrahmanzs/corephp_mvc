@@ -1,12 +1,5 @@
-<?php
-session_start();
-$email = $_SESSION['useremail'];
-if (!isset($email)) {
-    echo "<script>window.open('login.php','_self')</script>";
-} else {
-?>
-    <?php
-
+ <?php
+ session_start();
     $useremail=$_SESSION['useremail'];
 
     include('../config/dbconnect.php');
@@ -19,9 +12,9 @@ if (!isset($email)) {
     $lastname = $row['lastname'];
     $username = $row['username'];
     $useremail = $row['useremail'];
-    $userphone = $row['phone'];
-    $userprofile = $row['profile'];
-    $useraddress = $row['address'];
+    $phone = $row['phone'];
+    $profile = $row['profile'];
+    $address = $row['address'];
     //}
     ?>
 
@@ -72,25 +65,23 @@ if (!isset($email)) {
 
                             <div class="form-group">
                                 <label class="form-label required" for="phoneNumber">Phone Number</label>
-                                <input type="tel" id="phoneNumber" class="form-control" name="userphone" required value="<?php echo $userphone; ?>" />
+                                <input type="tel" id="phoneNumber" class="form-control" name="phone" required value="<?php echo $phone; ?>" />
 
-                            </div>
-                            <div>
-                            <img src="<?php echo $rows['$userprofile'];?>" alt="UserProfile"   width="50%">
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label required" for="formFileLg">Profile Upload</label>
-                                <input class="form-control" id="formFileLg" name="userprofile" type="file" required value="<?php echo $userprofile; ?>" />
                             </div>
                             <div class="form-group">
                                 <label class="form-label required" for="addressform">Address</label>
-                                <textarea class="form-control" id="addressform" name="useraddress" rows="3" required value="<?php echo $useraddress; ?>"></textarea>
+                                <input type="text" class="form-control" id="address" name="address" required value="<?php echo $address; ?>">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label required" for="formFileLg">Profile Upload</label>
+                                <input class="form-control" id="formFileLg" name="profile" type="file" required value="<?php echo $profile; ?>" /><img src="<?php echo $profile; ?>" width="100px" height="100px">
                             </div>
 
                             <div class="btns">
                                 <input type="submit" class="btn btn-outline-primary btn-sm signup" id="reg-btn" name="Update" value="Update Account">
                             </div>
 
+                            <a href="http://localhost/corephp_mvc/application/views/profile_view.php">Home Page</a>
                         </form>
                     </div>
 
@@ -105,6 +96,3 @@ if (!isset($email)) {
     </body>
 
     </html>
-<?php
-}
-?>
