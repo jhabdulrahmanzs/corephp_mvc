@@ -2,6 +2,7 @@
 session_start();
 
 include '../config/dbconnect.php';
+include '../views/login.php';
 if (isset($_POST['Login'])) 
 {
     $useremail = $_POST['useremail'];
