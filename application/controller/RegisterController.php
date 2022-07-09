@@ -19,7 +19,7 @@ session_start();
     $useremail = $_POST['useremail'];
     $phoneno = $_POST['userphone'];
    
-    // $userprofile = $_POST['userprofile'];
+    $userprofile = $_POST['userprofile'];
     $useraddress = $_POST['useraddress'];
     $userpwd =md5($_POST['userpwd']);
     $cpassword =md5($_POST['cpassword']);
