@@ -12,7 +12,7 @@
     font-size: 14px;
 }
 
-a {
+a.edit {
     border: none;
     outline: 0;
     display: inline-block;
@@ -21,7 +21,7 @@ a {
     background-color: #000;
     text-align: center;
     cursor: pointer;
-    width: 95%;
+    width: 100%;
     font-size: 14px;
 }
 

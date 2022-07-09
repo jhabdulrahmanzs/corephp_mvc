@@ -40,7 +40,14 @@
     margin: 0 0 20px;
 }
 
-.form-container .form-horizontal {}
+.form-container .form-horizontal {
+    display: flex;
+    align-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+}
 
 .form-container .form-horizontal .form-group {
     color: #333;
@@ -183,4 +190,5 @@
     flex-wrap: wrap;
     flex-direction: column;
     align-content: center;
+    margin: 0 auto;
 }
