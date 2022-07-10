@@ -9,14 +9,15 @@ include '../config/dbconnect.php';
 
 if (
   isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['username']) &&
-  isset($_POST['useremail']) && isset($_POST['userphone']) && isset($_POST['userprofile']) && isset($_POST['useraddress'])
-  && isset($_POST['userpwd']) && isset($_POST['cpassword'])
+  isset($_POST['useremail']) && isset($_POST['userphone']) && isset($_FILES['userprofile']['name'])
+  && isset($_POST['useraddress']) && isset($_POST['userpwd']) && isset($_POST['cpassword'])
 ) {
   $firstname = $_POST['firstname'];
   $lastname = $_POST['lastname'];
   $username = $_POST['username'];
   $useremail = $_POST['useremail'];
   $phoneno = $_POST['userphone'];
+  // $userprofile=$_POST['userprofile'];
   $useraddress = $_POST['useraddress'];
   $userpwd = md5($_POST['userpwd']);
   $cpassword = md5($_POST['cpassword']);
@@ -87,5 +88,15 @@ if (
       header('Location: http://localhost/corephp_mvc/application/views/home.php');
     }
   }
+}else{
+  echo $_POST['firstname'];
+  echo $_POST['lastname'];
+  echo $_POST['username'];
+  echo $_POST['useremail'];
+  echo $_POST['userphone'];
+  echo $_FILES['userprofile']['name'];
+  echo $_POST['useraddress'];
+  echo $_POST['userpwd'];
+  echo $_POST['cpassword'];
+
 }
-?>
