@@ -45,9 +45,9 @@ $(document).ready(function() {
                 beforeSend: function() {
                     $('#reg-btn').html('<i class="fa-solid fa-spinner fa-spin"></i>');
                     $('#reg-btn').attr("disabled", true);
-                    $('#reg-btn').css({
-                        "border-radius": "50%"
-                    });
+                    // $('#reg-btn').css({
+                    //     "border-radius": "50%"
+                    // });
                 },
 
                 success: function(data) {
