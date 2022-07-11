@@ -25,8 +25,8 @@ if (
   $select = "SELECT * from register where useremail='$useremail'";
   $result = mysqli_query($conn, $select);
   if (mysqli_num_rows($result) > 0) {
-    //echo "<script>alert('Email is already taken!!!')</script>";
-    //echo "<script>window.open('http://localhost/corephp_mvc/application/views/register.php','_self')</script>";
+    echo "<script>alert('Email is already taken!!!')</script>";
+    echo "<script>window.open('http://localhost/corephp_mvc/application/views/register.php','_self')</script>";
   } else {
     // profile upload
     $target_dir = "../../src/uploads/";
@@ -39,7 +39,7 @@ if (
 
     $check = getimagesize($_FILES["userprofile"]["tmp_name"]);
     if ($check !== false) {
-      echo  $check["mime"] . ".";
+      echo "File is an image - " . $check["mime"] . ".";
       $uploadOk = 1;
     } else {
       echo "File is not an image.";
@@ -73,7 +73,7 @@ if (
     } else {
       if (move_uploaded_file($_FILES["userprofile"]["tmp_name"], $target_file)) {
 
-        echo htmlspecialchars(basename($_FILES["userprofile"]["name"]));
+        echo "The file " . htmlspecialchars(basename($_FILES["userprofile"]["name"])) . " has been uploaded.";
       } else {
         echo "Sorry, there was an error uploading your file.";
       }
@@ -81,22 +81,14 @@ if (
 
     $register = "INSERT into register(firstname,lastname,username,useremail,phone,profile,address,userpwd) values('$firstname','$lastname','$username','$useremail','$phoneno','$target_dir_con','$useraddress','$userpwd')";
     $result = mysqli_query($conn, $register);
-    print_r($result);
+    //print_r($result ==);
     if ($result) {
       $_SESSION['useremail'] = $useremail;
-      //echo $_SESSION['useremail'];
-      // echo "User Created";
-      /* header('Location: http://localhost/corephp_mvc/application/views/home.php'); */
-      $response = array(
-        'status' => 'success'
-      );
-
-      echo (json_encode($response));
-    } else {
-      echo "faileddd";
+      // echo "User Created Successfully.";
+      header('Location: http://localhost/corephp_mvc/application/views/home.php');
     }
   }
-} else {
+}else{
   echo $_POST['firstname'];
   echo $_POST['lastname'];
   echo $_POST['username'];
@@ -106,4 +98,5 @@ if (
   echo $_POST['useraddress'];
   echo $_POST['userpwd'];
   echo $_POST['cpassword'];
+
 }

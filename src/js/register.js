@@ -1,44 +1,12 @@
 $(document).ready(function() {
 
-    $('#reg-btn').click(function(event) {
+    $('#reg-btn').click(function() {
         event.preventDefault();
 
         if (!firstname() || !lastname() || !checkuser() || !checkemail() || !checkmobile() || !useraddress() || !checkpass() || !checkprofile() || !checkcpass()) {
             console.log("er1");
             $("#message").html(`<div class="alert alert-warning">Please fill all required field</div>`);
-        }
-        //  else if (!firstname() && !lastname() && checkuser() && !checkemail() && !checkmobile() && !useraddress() && !checkpass() && !checkprofile() && !checkcpass()) {
-        //     $("#message").html(`<div class="alert alert-warning">Please fill the Empty field! </div>`);
-        //     console.log("er2");
-        // } else if (!firstname() && lastname() && !checkuser() && !checkemail() && !checkmobile() && !useraddress() && !checkpass() && !checkprofile() && !checkcpass()) {
-        //     $("#message").html(`<div class="alert alert-warning">Please fill the Empty field! </div>`);
-        //     console.log("er3");
-        // } else if (firstname() && !lastname() && !checkuser() && !checkemail() && !checkmobile() && !useraddress() && !checkpass() && !checkprofile() && !checkcpass()) {
-        //     $("#message").html(`<div class="alert alert-warning">Please fill the Empty field! </div>`);
-        //     console.log("er4");
-        // } else if (!firstname() && !lastname() && !checkuser() && checkemail() && !checkmobile() && !useraddress() && !checkpass() && !checkprofile() && !checkcpass()) {
-        //     $("#message").html(`<div class="alert alert-warning">Please fill the Empty field! </div>`);
-        //     console.log("er5");
-        // } else if (!firstname() && !lastname() && !checkuser() && !checkemail() && checkmobile() && !useraddress() && !checkpass() && !checkprofile() && !checkcpass()) {
-        //     $("#message").html(`<div class="alert alert-warning">Please fill the Empty field! </div>`);
-        //     console.log("er6");
-        // } else if (!firstname() && !lastname() && !checkuser() && !checkemail() && !checkmobile() && !useraddress() && checkpass() && !checkprofile() && !checkcpass()) {
-        //     $("#message").html(`<div class="alert alert-warning">Please fill the Empty field! </div>`);
-        //     console.log("er7");
-        // } else if (!firstname() && !lastname() && !checkuser() && !checkemail() && !checkmobile() && !useraddress() && !checkpass() && checkcpass() && !checkprofile() && !checkcpass()) {
-        //     $("#message").html(`<div class="alert alert-warning">Please fill the Empty field! </div>`);
-        //     console.log("er8");
-        // } else if (!firstname() && !lastname() && !checkuser() && !checkemail() && !checkmobile() && useraddress() && !checkpass() && !checkcpass() && !checkprofile() && !checkcpass()) {
-        //     $("#message").html(`<div class="alert alert-warning">Please fill the Empty field! </div>`);
-        //     console.log("er8");
-        // } else if (!firstname() && !lastname() && !checkuser() && !checkemail() && !checkmobile() && !useraddress() && !checkpass() && !checkcpass() && checkprofile() && !checkcpass()) {
-        //     $("#message").html(`<div class="alert alert-warning">Please fill the Empty field! </div>`);
-        //     console.log("er9");
-        // } else if (!firstname() && !lastname() && !checkuser() && !checkemail() && !checkmobile() && !useraddress() && !checkpass() && !checkcpass() && !checkprofile() && checkcpass()) {
-        //     $("#message").html(`<div class="alert alert-warning">Please fill the Empty field! </div>`);
-        //     console.log("er10");
-        // } 
-        else {
+        } else {
             //alert("hi")
             console.log("ok");
             $("#message").html("");
@@ -48,7 +16,6 @@ $(document).ready(function() {
             $.ajax({
                 type: "POST",
                 url: "../controller/RegisterController.php",
-                // dataType: "json",
                 data: data,
                 processData: false,
                 contentType: false,
@@ -63,24 +30,17 @@ $(document).ready(function() {
                 },
 
                 success: function(data) {
-                    //console.log(data);
-                    // $('#formerr').html(data);
-                    console.log(data);
-                    // data['status']=='invalid'
-                    if (data['status'] == "success") {
-                        /*  window.location('http://localhost/corephp_mvc/application/views/home.php'); */
-                        window.location('home.php');
-                    }
+                    $('.form-container').html(data);
                 },
-                // complete: function() {
-                //     console.log("ajax compelte")
-                //     $('#form').trigger("reset");
-                //     $('#reg-btn').html('Submit');
-                //     $('#reg-btn').attr("disabled", false);
-                // $('#reg-btn').css({
-                //     "border-radius": "4px"
-                // });
-                // }
+                complete: function() {
+                    console.log("compelte")
+                    $('#form').trigger("reset");
+                    $('#reg-btn').html('Submit');
+                    $('#reg-btn').attr("disabled", false);
+                    // $('#reg-btn').css({
+                    //     "border-radius": "4px"
+                    // });
+                }
             });
         }
     });
@@ -140,7 +100,7 @@ function checkuser() {
 
 function checkemail() {
     console.log("email");
-    var pattern1 = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
+    var pattern1 = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
     var email = $('#useremail').val();
     var validemail = pattern1.test(email);
     if (email == "") {
