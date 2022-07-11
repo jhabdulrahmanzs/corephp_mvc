@@ -1,6 +1,9 @@
-.card {
+.card.profile-card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    max-width: 400px;
+    height: 400px;
+    max-width: 350px;
+    border: 1px solid #dadada;
+    border-radius: 10px;
     margin: auto;
     text-align: center;
     font-family: arial;
