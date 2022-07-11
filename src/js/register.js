@@ -3,39 +3,9 @@ $(document).ready(function() {
     $('#reg-btn').click(function() {
         event.preventDefault();
 
-        if (!firstname() && !lastname() && !checkuser() && !checkemail() && !checkmobile() && !useraddress() && !checkpass() && !checkprofile() && !checkcpass()) {
+        if (!firstname() || !lastname() || !checkuser() || !checkemail() || !checkmobile() || !useraddress() || !checkpass() || !checkprofile() || !checkcpass()) {
             console.log("er1");
             $("#message").html(`<div class="alert alert-warning">Please fill all required field</div>`);
-        } else if (!firstname() && !lastname() && checkuser() && !checkemail() && !checkmobile() && !useraddress() && !checkpass() && !checkprofile() && !checkcpass()) {
-            $("#message").html(`<div class="alert alert-warning">Please fill the Empty field! </div>`);
-            console.log("er2");
-        } else if (!firstname() && lastname() && !checkuser() && !checkemail() && !checkmobile() && !useraddress() && !checkpass() && !checkprofile() && !checkcpass()) {
-            $("#message").html(`<div class="alert alert-warning">Please fill the Empty field! </div>`);
-            console.log("er3");
-        } else if (firstname() && !lastname() && !checkuser() && !checkemail() && !checkmobile() && !useraddress() && !checkpass() && !checkprofile() && !checkcpass()) {
-            $("#message").html(`<div class="alert alert-warning">Please fill the Empty field! </div>`);
-            console.log("er4");
-        } else if (!firstname() && !lastname() && !checkuser() && checkemail() && !checkmobile() && !useraddress() && !checkpass() && !checkprofile() && !checkcpass()) {
-            $("#message").html(`<div class="alert alert-warning">Please fill the Empty field! </div>`);
-            console.log("er5");
-        } else if (!firstname() && !lastname() && !checkuser() && !checkemail() && checkmobile() && !useraddress() && !checkpass() && !checkprofile() && !checkcpass()) {
-            $("#message").html(`<div class="alert alert-warning">Please fill the Empty field! </div>`);
-            console.log("er6");
-        } else if (!firstname() && !lastname() && !checkuser() && !checkemail() && !checkmobile() && !useraddress() && checkpass() && !checkprofile() && !checkcpass()) {
-            $("#message").html(`<div class="alert alert-warning">Please fill the Empty field! </div>`);
-            console.log("er7");
-        } else if (!firstname() && !lastname() && !checkuser() && !checkemail() && !checkmobile() && !useraddress() && !checkpass() && checkcpass() && !checkprofile() && !checkcpass()) {
-            $("#message").html(`<div class="alert alert-warning">Please fill the Empty field! </div>`);
-            console.log("er8");
-        } else if (!firstname() && !lastname() && !checkuser() && !checkemail() && !checkmobile() && useraddress() && !checkpass() && !checkcpass() && !checkprofile() && !checkcpass()) {
-            $("#message").html(`<div class="alert alert-warning">Please fill the Empty field! </div>`);
-            console.log("er8");
-        } else if (!firstname() && !lastname() && !checkuser() && !checkemail() && !checkmobile() && !useraddress() && !checkpass() && !checkcpass() && checkprofile() && !checkcpass()) {
-            $("#message").html(`<div class="alert alert-warning">Please fill the Empty field! </div>`);
-            console.log("er9");
-        } else if (!firstname() && !lastname() && !checkuser() && !checkemail() && !checkmobile() && !useraddress() && !checkpass() && !checkcpass() && !checkprofile() && checkcpass()) {
-            $("#message").html(`<div class="alert alert-warning">Please fill the Empty field! </div>`);
-            console.log("er10");
         } else {
             //alert("hi")
             console.log("ok");
