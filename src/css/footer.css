@@ -1,0 +1,20 @@
+.footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px 0;
+    font-size: 14px;
+    transition: all 0.3s;
+    border-top: 1px solid #cddfff;
+    color: #000;
+}
+
+.footer .copyright {
+    text-align: center;
+}
+
+.footer .copyright span {
+    text-align: center;
+    color: #007bff;
+}
