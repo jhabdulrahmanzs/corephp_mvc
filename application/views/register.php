@@ -81,6 +81,9 @@ if (isset($_SESSION['useremail'])) {
                             <input type="password" class="form-control" id="cpassword" placeholder="Confirm Password" name="cpassword">
                             <span class="error" id="cpassword_err"></span>
                         </div>
+                        <div id="formErr">
+
+                        </div>
                         <div class="btns">
                             <input type="submit" class="btn btn-outline-primary btn-sm signup" id="reg-btn" name="reg_submit" value="Create Account">
                             <span class="signin-link">Already have an account? Click here to <a href="login.php">Login</a></span>

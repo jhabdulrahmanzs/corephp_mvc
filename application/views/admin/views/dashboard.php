@@ -56,7 +56,7 @@ $rs_result = mysqli_query ($conn, $query);
         </div>
         <div>
 
-            <button type="button" class="btn btn-link "><a href="http://localhost/corephp_mvc/application/views/admin/views/logout.php">Logout</a></button>
+            <button type="button" class="btn btn-link "><a href="logout.php">Logout</a></button>
         </div>
     </header>
 
