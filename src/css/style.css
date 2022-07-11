@@ -16,3 +16,7 @@ h1 {
     content: " *";
     color: red;
 }
+
+a {
+    text-decoration: none !important;
+}
