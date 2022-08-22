@@ -12,7 +12,7 @@ $(document).ready(function() {
             $("#message").html("");
             var form = $('#form')[0];
             var data = new FormData(form);
-            console.log("ajax start");
+            console.log("ajax start with data");
             $.ajax({
                 type: "POST",
                 url: "../controller/RegisterController.php",
